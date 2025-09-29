@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { TypewriterEffectSmooth } from '@/components/ui/typewriter-effect';
+import { TextGenerateEffect } from '@/components/ui/text-generate-effect';
 
 // --- Utility Components & Constants ---
 
@@ -67,7 +68,7 @@ const itemVariants = {
 
 const FeatureCard = ({ icon: Icon, title, description, delay }: any) => (
     <motion.div
-        className="bg-gray-800/60 p-6 rounded-2xl border border-gray-700/50 shadow-2xl backdrop-blur-sm h-full"
+        className="bg-gray-800/60 z-[-100] p-6 rounded-2xl border border-gray-700/50 shadow-2xl backdrop-blur-sm h-[50%]"
         // variants={itemVariants}
         initial="hidden"
         whileInView="visible"
@@ -200,14 +201,15 @@ export default function App() {
                         <TypewriterEffectSmooth words={words} />
 
                     </h1>
-                    <motion.p
+                    <motion.div
                         className="text-gray-300 text-base sm:text-xl max-w-2xl mx-auto"
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ delay: 1.5, duration: 0.8 }}
                     >
-                        A symphony of combustion and electricity. The i8 rewrote the rules of performance, combining supercar dynamics with compact car efficiency.
-                    </motion.p>
+                        <TextGenerateEffect words={"A symphony of combustion and electricity. The i8 rewrote the rules of performance, combining supercar dynamics with compact car efficiency."} />
+                      
+                    </motion.div>
                 </motion.div>
             </section>
 
