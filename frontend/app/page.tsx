@@ -70,7 +70,7 @@ export default function BMWi8Homepage() {
             />
 
             <motion.p
-              className="text-xl md:text-2xl text-muted-foreground mb-12 max-w-3xl mx-auto text-pretty"
+              className="text-xl md:text-2xl text-gray-400 mb-12 max-w-3xl mx-auto text-pretty"
               initial={{ opacity: 0, y: 50 }}
               animate={heroInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.8, delay: 0.8 }}
@@ -410,6 +410,8 @@ export default function BMWi8Homepage() {
           }}
         />
       </div>
+
+      {/* <BMWi8Viewer /> */}
       {/* Footer */}
       <footer className="py-16 bg-card border-t border-border">
         <div className="max-w-7xl mx-auto px-6">
