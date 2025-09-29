@@ -16,9 +16,9 @@ import LightRays from "@/components/LightRay";
 import Script from "next/script";
 
 export const metadata: Metadata = {
-  title: "AI Interviewer - Master Your Next Interview",
+  title: "BMW - i8",
   description:
-    "Practice interviews with AI-powered coaching. Get personalized feedback and ace your next interview.",
+    "The BMW i8 is a futuristic plug-in hybrid sports car that blends stunning design with cutting-edge performance and sustainability.",
   generator: "v0.app",
 };
 
