@@ -11,46 +11,17 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "mode": {
-      "type": "enumeration",
-      "default": "Technical",
-      "enum": [
-        "HR",
-        "Technical"
-      ]
-    },
-    "difficulty": {
-      "type": "enumeration",
-      "default": "medium",
-      "enum": [
-        "easy",
-        "hard",
-        "medium"
-      ]
-    },
-    "skills": {
-      "type": "string"
-    },
-    "details": {
-      "type": "text"
-    },
-    "conversation": {
-      "type": "json"
-    },
     "user": {
       "type": "relation",
       "relation": "manyToOne",
       "target": "plugin::users-permissions.user",
-      "inversedBy": "interviews"
+      "inversedBy": "bookings"
     },
-    "numberOfQuestions": {
-      "type": "integer"
-    },
-    "report": {
-      "type": "richtext"
-    },
-    "resume": {
+    "name": {
       "type": "string"
+    },
+    "phone": {
+      "type": "biginteger"
     }
   }
 }
