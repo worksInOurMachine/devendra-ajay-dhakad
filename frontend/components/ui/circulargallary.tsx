@@ -516,19 +516,19 @@ class App {
   ) {
     const defaultItems = [
       {
-        image: "https://images.pexels.com/photos/86993/pexels-photo-86993.jpeg",
+        image: "./bmw-7546825_1280.jpg",
         text: "",
       },
       {
-        image: "https://images.pexels.com/photos/86993/pexels-photo-86993.jpeg",
+        image: "./bmw-7548777_1280.jpg",
         text: "",
       },
       {
-        image: "https://images.pexels.com/photos/86993/pexels-photo-86993.jpeg",
+        image: "./car-racing-4394450_1280.jpg",
         text: "",
       },
       {
-        image: "https://images.pexels.com/photos/86993/pexels-photo-86993.jpeg",
+        image: "./wheel-7043351_1280.jpg",
         text: "",
       },
     ];
