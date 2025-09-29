@@ -22,6 +22,8 @@ export default function SignupFormDemo() {
       });
       if (res?.ok) {
         toast.success("Login successful");
+        const audio = new Audio("/mixkit-cars-starting-1561.wav"); // Place your audio in public/sounds
+        audio.play().catch((err) => console.log("Audio play error:", err));
         const redirectRoute =
           JSON.parse(localStorage.getItem("redirectRoute")!)! || "/";
         localStorage.removeItem("redirectRoute");
