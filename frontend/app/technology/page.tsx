@@ -430,13 +430,14 @@ export default function App() {
 
                         {/* Placeholder Image of Light Beam */}
                         <motion.div
-                            className="aspect-video bg-gray-800 rounded-xl shadow-2xl flex items-center justify-center p-8"
+                            className="aspect-video bg-gray-800 rounded-xl shadow-2xl flex items-center justify-center p-0"
                             initial={{ scale: 0.9 }}
                             whileInView={{ scale: 1 }}
                             viewport={{ once: true, amount: 0.5 }}
                             transition={{ duration: 0.8, type: "spring", stiffness: 100 }}
                         >
-                            <p className="text-cyan-500 text-xl font-bold">600m Beam Range Visualization</p>
+
+                            <video src="./bmw-i8.mp4" autoPlay loop muted className=' w-full rounded-xl'  />
                         </motion.div>
                     </motion.div>
                 </div>
