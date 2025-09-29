@@ -433,7 +433,7 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
 export interface ApiInterviewInterview extends Struct.CollectionTypeSchema {
   collectionName: 'interviews';
   info: {
-    displayName: 'interview';
+    displayName: 'booking';
     pluralName: 'interviews';
     singularName: 'interview';
   };
