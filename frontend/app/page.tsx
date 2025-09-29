@@ -5,6 +5,10 @@ import { Button } from "@/components/ui/button";
 import { ChevronRight, Play, ArrowRight, Menu } from "lucide-react";
 import { useRef } from "react";
 import Image from "next/image";
+import TextType from "@/components/ui/typeText";
+import { LampContainer } from "@/components/ui/lamp";
+import CircularGallery from "@/components/ui/circulargallary";
+import Hyperspeed from "@/components/ui/hyperspeed";
 
 export default function BMWi8Homepage() {
   const { scrollYProgress } = useScroll();
@@ -32,14 +36,18 @@ export default function BMWi8Homepage() {
         className="relative min-h-screen flex items-center justify-center hero-gradient"
       >
         <motion.div style={{ y, opacity }} className="absolute inset-0 z-0">
-          <Image
-            src="/image.png"
-            alt="BMW i8"
-            fill
-            className="object-cover object-center"
-            priority
+          {/* Background Video */}
+          <video
+            src="/bmw.mp4" // replace with your video file path
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-full object-cover"
           />
-          <div className="absolute brightness-0 inset-0 bg-gradient-to-t from-background/60 via-transparent to-background/20" />
+
+          {/* Black Overlay */}
+          <div className="absolute inset-0 bg-black/40" />
         </motion.div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 text-center">
@@ -48,16 +56,18 @@ export default function BMWi8Homepage() {
             animate={heroInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
           >
-            <motion.h1
-              className="text-6xl md:text-8xl lg:text-9xl font-bold text-foreground mb-6 text-balance leading-none"
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={heroInView ? { opacity: 1, scale: 1 } : {}}
-              transition={{ duration: 1.2, delay: 0.4, ease: "easeOut" }}
-            >
-              FUTURE.
-              <br />
-              <span className="text-primary">REDEFINED.</span>
-            </motion.h1>
+            <TextType
+              text={[
+                "THE FUTURE OF DRIVING.",
+                "DRIVEN BY INNOVATION.",
+                "EXPERIENCE THE BMW i8.",
+              ]}
+              typingSpeed={75}
+              pauseDuration={1500}
+              showCursor={true}
+              cursorCharacter="|"
+              className="text-5xl md:text-7xl font-bold text-white mb-6 text-balance"
+            />
 
             <motion.p
               className="text-xl md:text-2xl text-muted-foreground mb-12 max-w-3xl mx-auto text-pretty"
@@ -232,31 +242,101 @@ export default function BMWi8Homepage() {
         </div>
       </section>
 
+      <LampContainer>
+        <motion.h1
+          initial={{ opacity: 0.5, y: 100 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{
+            delay: 0.3,
+            duration: 0.8,
+            ease: "easeInOut",
+          }}
+          className="bg-gradient-to-br from-slate-300 to-slate-500 py-4 bg-clip-text text-center text-3xl md:text-6xl font-bold tracking-tight text-transparent w-[100vw]"
+        >
+          BMW i8 <br /> Redefining Hybrid Performance
+        </motion.h1>
+
+        <motion.p
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.6, duration: 0.8, ease: "easeInOut" }}
+          className="mt-6 max-w-2xl text-center text-base md:text-lg text-slate-300 px-4"
+        >
+          The BMW i8 combines electrified innovation with iconic sports car DNA.
+          With a powerful plug-in hybrid system, futuristic design, and
+          sustainable performance, it delivers 0–100 km/h in just 4.4 seconds
+          while reducing emissions. Experience luxury reimagined — for a
+          smarter, cleaner future.
+        </motion.p>
+      </LampContainer>
+
+      <div className="h-[100vh] pb-10 mt-10" style={{ position: "relative" }}>
+        <motion.h1
+          initial={{ opacity: 0.5, y: 100 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{
+            delay: 0.3,
+            duration: 0.8,
+            ease: "easeInOut",
+          }}
+          className="bg-gradient-to-br from-slate-300 to-slate-500 py-4 bg-clip-text text-center text-4xl font-medium tracking-tight text-transparent w-[100vw] md:text-7xl"
+        >
+          Explore The Design
+          <br /> of BMW i8
+        </motion.h1>
+        <CircularGallery
+          bend={3}
+          textColor="#ffffff"
+          borderRadius={0.05}
+          scrollEase={0.02}
+        />
+      </div>
+
       {/* CTA Section */}
-      <section className="py-32 bg-primary text-primary-foreground">
-        <div className="max-w-7xl mx-auto px-6 text-center">
+      <section className="relative py-32 bg-black text-white overflow-hidden">
+        {/* Optional subtle background animation or gradient */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-black/80 pointer-events-none" />
+
+        <div className="relative max-w-7xl mx-auto px-6 text-center">
           <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8 }}
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
             viewport={{ once: true }}
           >
-            <h2 className="text-5xl md:text-7xl font-bold mb-8 text-balance">
-              EXPERIENCE THE
-              <br />
-              <span className="text-accent">EXTRAORDINARY.</span>
-            </h2>
+            {/* Heading */}
+            <motion.h2
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2, duration: 0.8 }}
+              className="text-5xl md:text-7xl font-extrabold mb-6 tracking-tight"
+            >
+              EXPERIENCE THE <br />
+              <span className="text-yellow-400">EXTRAORDINARY.</span>
+            </motion.h2>
 
-            <p className="text-xl mb-12 max-w-3xl mx-auto text-pretty opacity-90">
+            {/* Subheading */}
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 0.9, y: 0 }}
+              transition={{ delay: 0.4, duration: 0.8 }}
+              className="text-xl md:text-2xl mb-12 max-w-3xl mx-auto opacity-90"
+            >
               Schedule your exclusive BMW i8 test drive and discover what it
               means to drive the future.
-            </p>
+            </motion.p>
 
-            <div className="flex flex-col sm:flex-row gap-6 justify-center">
+            {/* Buttons */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.6, duration: 0.8 }}
+              className="flex flex-col sm:flex-row gap-6 justify-center"
+            >
               <Button
                 size="lg"
                 variant="secondary"
-                className="px-8 py-6 text-lg group bg-primary-foreground text-primary hover:bg-primary-foreground/90"
+                className="px-8 py-6 text-lg bg-yellow-500 text-black font-semibold shadow-lg hover:bg-yellow-400 hover:scale-105 transition-transform duration-300 flex items-center justify-center"
               >
                 Book Test Drive
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
@@ -265,15 +345,71 @@ export default function BMWi8Homepage() {
               <Button
                 size="lg"
                 variant="outline"
-                className="px-8 py-6 text-lg border-2 border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary bg-transparent"
+                className="px-8 py-6 text-lg border-2 border-white text-white hover:bg-white hover:text-black font-semibold transition-all duration-300"
               >
                 Find Dealer
               </Button>
-            </div>
+            </motion.div>
           </motion.div>
         </div>
       </section>
 
+      <div className="w-[100vw] text-center overflow-hidden min-h-screen relative bg-black">
+        {/* Centered animated text */}
+        <TextType
+          text={[
+            "EXPERIENCE THE PACE.",
+            "FEEL THE SPEED.",
+            "RIDE INTO THE FUTURE.",
+          ]}
+          typingSpeed={75}
+          pauseDuration={1500}
+          showCursor={true}
+          cursorCharacter="|"
+          className="text-5xl absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 md:text-7xl font-bold text-white mb-6 text-balance"
+        />
+
+        {/* Hyperspeed effect */}
+        <Hyperspeed
+          effectOptions={{
+            onSpeedUp: () => {},
+            onSlowDown: () => {},
+            distortion: "turbulentDistortion",
+            length: 300,
+            roadWidth: 10,
+            islandWidth: 2,
+            lanesPerRoad: 6,
+            fov: 90,
+            fovSpeedUp: 150,
+            speedUp: 2,
+            carLightsFade: 0.4,
+            totalSideLightSticks: 20,
+            lightPairsPerRoadWay: 40,
+            shoulderLinesWidthPercentage: 0.05,
+            brokenLinesWidthPercentage: 0.1,
+            brokenLinesLengthPercentage: 0.5,
+            lightStickWidth: [0.12, 0.5],
+            lightStickHeight: [1.3, 1.7],
+            movingAwaySpeed: [60, 80],
+            movingCloserSpeed: [-120, -160],
+            carLightsLength: [400 * 0.03, 400 * 0.2],
+            carLightsRadius: [0.05, 0.14],
+            carWidthPercentage: [0.3, 0.5],
+            carShiftX: [-0.8, 0.8],
+            carFloorSeparation: [0, 5],
+            colors: {
+              roadColor: 0x080808,
+              islandColor: 0x0a0a0a,
+              background: 0x000000,
+              shoulderLines: 0xffffff,
+              brokenLines: 0xffffff,
+              leftCars: [0xd856bf, 0x6750a2, 0xc247ac],
+              rightCars: [0x03b3c3, 0x0e5ea5, 0x324555],
+              sticks: 0x03b3c3,
+            },
+          }}
+        />
+      </div>
       {/* Footer */}
       <footer className="py-16 bg-card border-t border-border">
         <div className="max-w-7xl mx-auto px-6">
