@@ -4,7 +4,7 @@ import { useEffect, useState } from "react"
 import { motion } from "framer-motion"
 
 export default function Hero() {
-  const fullText = "The fastest and most powerful platform for mastering interviews with AI" // Updated to match OpenAI style
+  const fullText = "Experience the future of driving with the BMW i8" // Updated to match OpenAI style
   const [typed, setTyped] = useState("")
 
   useEffect(() => {
@@ -36,7 +36,7 @@ export default function Hero() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.2, duration: 0.8 }}
       >
-        Practice transformative interview experiences powered by industry-leading AI models and tools.{" "}
+        Experience the future of driving with the BMW i8.{" "}
         {/* Updated copy to match OpenAI style */}
       </motion.p>
     </div>

@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 
-export default function InterviewChatPane({
+export default function BMWChatPane({
   messages,
   isSpeechLoading,
   setMessages,

@@ -7,7 +7,7 @@ import SegmentedToggle from "./segmented-toggle";
 import { Input } from "@/components/ui/input";
 import { motion } from "framer-motion";
 
-export default function InterviewControls({
+export default function BMWControls({
   aiSpeaking,
   mode,
   listening,
@@ -26,6 +26,7 @@ export default function InterviewControls({
   setText: (text: string) => void;
   handleSend: (text: string) => void;
 }) {
+  //@ts-ignore
   const recognitionRef = useRef<SpeechRecognition | null>(null);
 
   useEffect(() => {
