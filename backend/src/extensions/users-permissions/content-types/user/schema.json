@@ -66,10 +66,16 @@
       "inversedBy": "users",
       "configurable": false
     },
-    "interviews": {
+    "bookings": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::interview.interview",
+      "mappedBy": "user"
+    },
+    "bookingg": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::bookingg.bookingg",
       "mappedBy": "user"
     }
   }

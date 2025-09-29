@@ -430,6 +430,39 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiBookinggBookingg extends Struct.CollectionTypeSchema {
+  collectionName: 'bookinggs';
+  info: {
+    displayName: 'bookingg';
+    pluralName: 'bookinggs';
+    singularName: 'bookingg';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::bookingg.bookingg'
+    > &
+      Schema.Attribute.Private;
+    name: Schema.Attribute.String;
+    phone: Schema.Attribute.BigInteger;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    user: Schema.Attribute.Relation<
+      'oneToOne',
+      'plugin::users-permissions.user'
+    >;
+  };
+}
+
 export interface ApiInterviewInterview extends Struct.CollectionTypeSchema {
   collectionName: 'interviews';
   info: {
@@ -441,26 +474,18 @@ export interface ApiInterviewInterview extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    conversation: Schema.Attribute.JSON;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    details: Schema.Attribute.Text;
-    difficulty: Schema.Attribute.Enumeration<['easy', 'hard', 'medium']> &
-      Schema.Attribute.DefaultTo<'medium'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::interview.interview'
     > &
       Schema.Attribute.Private;
-    mode: Schema.Attribute.Enumeration<['HR', 'Technical']> &
-      Schema.Attribute.DefaultTo<'Technical'>;
-    numberOfQuestions: Schema.Attribute.Integer;
+    name: Schema.Attribute.String;
+    phone: Schema.Attribute.BigInteger;
     publishedAt: Schema.Attribute.DateTime;
-    report: Schema.Attribute.RichText;
-    resume: Schema.Attribute.String;
-    skills: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -929,6 +954,11 @@ export interface PluginUsersPermissionsUser
   };
   attributes: {
     blocked: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    bookingg: Schema.Attribute.Relation<'oneToOne', 'api::bookingg.bookingg'>;
+    bookings: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::interview.interview'
+    >;
     confirmationToken: Schema.Attribute.String & Schema.Attribute.Private;
     confirmed: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     createdAt: Schema.Attribute.DateTime;
@@ -939,10 +969,6 @@ export interface PluginUsersPermissionsUser
       Schema.Attribute.SetMinMaxLength<{
         minLength: 6;
       }>;
-    interviews: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::interview.interview'
-    >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -984,6 +1010,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
+      'api::bookingg.bookingg': ApiBookinggBookingg;
       'api::interview.interview': ApiInterviewInterview;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
