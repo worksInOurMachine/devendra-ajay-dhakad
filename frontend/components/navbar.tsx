@@ -80,7 +80,7 @@ const Navbar = () => {
         </Link>
 
         {/* Main Links */}
-        <div className="hidden items-center gap-8 md:flex">
+        <div className="items-center gap-8 md:flex">
           <Link
             href="/"
             className="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
@@ -93,12 +93,11 @@ const Navbar = () => {
           >
             Technology
           </Link>
-
         </div>
 
         {/* Auth + Theme */}
         <div className="flex items-center gap-2 sm:gap-3">
-      {/*     <ThemeToggle /> */}
+          {/*     <ThemeToggle /> */}
           {session?.user?.id ? (
             <>
               <Link
