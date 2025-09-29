@@ -76,7 +76,7 @@ const Navbar = () => {
             <div className="w-2 h-2 rounded-full bg-white/100 opacity-60"></div>
             <div className="w-2 h-2 rounded-full bg-white/100 opacity-30"></div>
           </div>
-          <span className="text-sm font-bold">AI Interviewer</span>
+          <span className="text-sm font-bold">BMW i8</span>
         </Link>
 
         {/* Main Links */}
