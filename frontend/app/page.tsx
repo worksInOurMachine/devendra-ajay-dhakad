@@ -10,6 +10,7 @@ import { LampContainer } from "@/components/ui/lamp";
 import CircularGallery from "@/components/ui/circulargallary";
 import Hyperspeed from "@/components/ui/hyperspeed";
 import Link from "next/link";
+import { CardBody, CardContainer, CardItem } from "@/components/ui/3dCard";
 
 export default function BMWi8Homepage() {
   const { scrollYProgress } = useScroll();
@@ -26,16 +27,6 @@ export default function BMWi8Homepage() {
 
   const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
   const opacity = useTransform(scrollYProgress, [0, 0.3], [1, 0]);
-
-  const footerVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
-  };
-
-  const pages = [
-    { name: "Home", href: "/" },
-    { name: "Technology", href: "/technology" },
-  ];
 
   return (
     <div className="min-h-screen bg-background overflow-hidden">
@@ -239,21 +230,34 @@ export default function BMWi8Homepage() {
               { number: "4.4", unit: "SEC", label: "0-100 km/h" },
               { number: "250", unit: "KM/H", label: "Top Speed" },
             ].map((spec, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 50 }}
-                animate={specsInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: index * 0.2 }}
-                className="text-center p-8 rounded-2xl bg-card border border-border hover:border-primary/50 transition-colors"
-              >
-                <div className="text-6xl md:text-7xl font-bold text-primary mb-2">
-                  {spec.number}
-                </div>
-                <div className="text-xl font-semibold text-accent mb-2">
-                  {spec.unit}
-                </div>
-                <div className="text-muted-foreground">{spec.label}</div>
-              </motion.div>
+              <CardContainer key={index} className="inter-var flex-1 min-w-0">
+                <CardBody className="bg-white flex justify-center items-center flex-col dark:bg-black w-full h-[50px] text-center hover:shadow-blue-500/20 dark:hover:shadow-emerald-500/30">
+                  {/* Spec Number (3D element) */}
+                  <CardItem
+                    translateZ="50"
+                    className="text-7xl font-bold text-blue-600 dark:text-blue-400 mb-2 transition-colors duration-300"
+                  >
+                    {spec.number}
+                  </CardItem>
+
+                  {/* Spec Unit (3D element) */}
+                  <CardItem
+                    translateZ="40"
+                    className="text-xl font-semibold text-gray-700 dark:text-gray-300 mb-4 uppercase tracking-widest transition-colors duration-300"
+                  >
+                    {spec.unit}
+                  </CardItem>
+
+                  {/* Spec Label (3D element) */}
+                  <CardItem
+                    as="p"
+                    translateZ="30"
+                    className="text-neutral-500 text-base max-w-sm mx-auto dark:text-neutral-400"
+                  >
+                    {spec.label}
+                  </CardItem>
+                </CardBody>
+              </CardContainer>
             ))}
           </div>
         </div>
@@ -429,75 +433,6 @@ export default function BMWi8Homepage() {
       </div>
 
       {/* <BMWi8Viewer /> */}
-
-      <footer className="py-12 bg-card border-t border-border">
-        <div className="max-w-4xl mx-auto px-6 text-center flex flex-col items-center gap-4">
-          {/* BMW Logo */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6 }}
-          >
-            <Image
-              src="/logo.png" // Place your BMW logo in public/images
-              alt="BMW Logo"
-              className="rounded-full"
-              width={80}
-              height={80}
-            />
-          </motion.div>
-
-          {/* Brand Name */}
-          <motion.h2
-            initial="hidden"
-            whileInView="visible"
-            variants={footerVariants}
-            className="text-2xl font-bold text-card-foreground"
-          >
-            BMW
-          </motion.h2>
-
-          {/* Description */}
-          <motion.p
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.8 }}
-            className="text-muted-foreground mb-4 text-center max-w-md"
-          >
-            Sheer driving pleasure through innovative luxury and sustainable
-            mobility.
-          </motion.p>
-
-          {/* Page Links */}
-          <div className="flex justify-center gap-8 mb-6">
-            {pages.map((page, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2 * i, duration: 0.5 }}
-              >
-                <Link
-                  href={page.href}
-                  className="text-card-foreground hover:text-white font-medium transition-transform hover:scale-105"
-                >
-                  {page.name}
-                </Link>
-              </motion.div>
-            ))}
-          </div>
-
-          {/* Copyright */}
-          <motion.p
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ delay: 0.5, duration: 0.6 }}
-            className="text-muted-foreground text-sm"
-          >
-            &copy; 2025 BMW Group. All rights reserved.
-          </motion.p>
-        </div>
-      </footer>
     </div>
   );
 }

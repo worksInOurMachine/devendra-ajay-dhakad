@@ -1,6 +1,7 @@
 "use client";
 import { Moon, Sun } from "lucide-react";
 import { signOut, useSession } from "next-auth/react";
+import Image from "next/image";
 import Link from "next/link";
 import React, { useState, useEffect } from "react";
 
@@ -65,19 +66,14 @@ const Navbar = () => {
       aria-label="Main navigation"
       className="fixed left-1/2 top-4 z-50 w-full  max-w-5xl -translate-x-1/2 px-4 font-[Inter]"
     >
-      <div className="flex items-center justify-between rounded-xl border border-gray-200 dark:border-gray-700 bg-white/80 dark:bg-gray-900/80 px-4 py-2 shadow-xl backdrop-blur-md sm:px-6 sm:py-3 transition-colors duration-300">
-        {/* Logo */}
-        <Link
-          href="/"
-          className="flex items-center gap-2 text-gray-900 dark:text-white"
-        >
-          <div className="flex items-center gap-1">
-            <div className="w-2 h-2 rounded-full bg-white/100"></div>
-            <div className="w-2 h-2 rounded-full bg-white/100 opacity-60"></div>
-            <div className="w-2 h-2 rounded-full bg-white/100 opacity-30"></div>
-          </div>
-          <span className="text-sm font-bold">BMW i8</span>
-        </Link>
+      <div className="flex items-center bg-transparent justify-between rounded-xl border border-gray-200 dark:border-gray-700 px-4 py-2 shadow-xl backdrop-blur-md sm:px-6 sm:py-3 transition-colors duration-300">
+        <Image
+          src="/logo.png" // Place your BMW logo in public/images
+          alt="BMW Logo"
+          className="rounded-full"
+          width={40}
+          height={40}
+        />
 
         {/* Main Links */}
         <div className="items-center gap-8 md:flex">

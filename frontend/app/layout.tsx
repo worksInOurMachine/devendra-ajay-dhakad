@@ -14,6 +14,7 @@ import { getServerSession } from "next-auth";
 import { authOptions } from "@/auth";
 import LightRays from "@/components/LightRay";
 import Script from "next/script";
+import Footer from "@/components/ui/footer";
 
 export const metadata: Metadata = {
   title: "BMW - i8",
@@ -63,6 +64,7 @@ export default async function RootLayout({
               <ToastProvider />
               {/* <div className="h-20" aria-hidden /> */}
               {children}
+              <Footer />
               <Analytics />
             </Suspense>
           </ThemeProvider>
