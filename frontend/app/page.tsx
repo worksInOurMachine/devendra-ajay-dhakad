@@ -86,6 +86,9 @@ export default function BMWi8Homepage() {
               transition={{ duration: 0.8, delay: 1 }}
             >
               <Button
+                onClick={() =>
+                  (window.location.href = "/https://www.bmw.in/en/index.html")
+                }
                 size="lg"
                 className="bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-6 text-lg group"
               >
@@ -95,6 +98,9 @@ export default function BMWi8Homepage() {
 
               <Button
                 variant="outline"
+                onClick={() =>
+                  (window.location.href = "/https://www.bmw.in/en/index.html")
+                }
                 size="lg"
                 className="px-8 py-6 text-lg group border-2 bg-transparent"
               >
