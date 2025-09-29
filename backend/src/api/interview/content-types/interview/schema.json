@@ -4,7 +4,7 @@
   "info": {
     "singularName": "interview",
     "pluralName": "interviews",
-    "displayName": "interview"
+    "displayName": "booking"
   },
   "options": {
     "draftAndPublish": true
