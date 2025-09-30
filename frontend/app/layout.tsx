@@ -14,7 +14,7 @@ import { getServerSession } from "next-auth";
 import { authOptions } from "@/auth";
 import LightRays from "@/components/LightRay";
 import Script from "next/script";
-import Footer from "@/components/ui/footer";
+import Footer from "@/components/ui/Footer";
 
 export const metadata: Metadata = {
   title: "BMW - i8",

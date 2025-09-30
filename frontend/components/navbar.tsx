@@ -96,7 +96,7 @@ const Navbar = () => {
           {/*     <ThemeToggle /> */}
           {session?.user?.id ? (
             <>
-              <Link
+          {/*     <Link
                 onClick={() => signOut()}
                 href=""
                 className="rounded-lg px-3 py-1.5 text-xs font-semibold text-gray-800 dark:text-white border border-gray-300 dark:border-gray-700 transition-colors hover:bg-gray-100 dark:hover:bg-gray-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 sm:px-4 sm:py-2"
@@ -108,11 +108,11 @@ const Navbar = () => {
                 className="rounded-lg px-3 py-1.5 text-xs font-semibold text-gray-800 dark:text-white border border-gray-300 dark:border-gray-700 transition-colors hover:bg-gray-100 dark:hover:bg-gray-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 sm:px-4 sm:py-2"
               >
                 Book now
-              </Link>
+              </Link> */}
             </>
           ) : (
             <>
-              <Link
+           {/*    <Link
                 href="/auth/login"
                 className="rounded-lg px-3 py-1.5 text-xs font-semibold text-gray-800 dark:text-white border border-gray-300 dark:border-gray-700 transition-colors hover:bg-gray-100 dark:hover:bg-gray-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 sm:px-4 sm:py-2"
               >
@@ -123,7 +123,7 @@ const Navbar = () => {
                 className="rounded-lg bg-white/100 px-3 py-1.5 text-xs font-semibold text-black shadow-sm hover:bg-white/80 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/55 sm:px-4 sm:py-2"
               >
                 Sign Up
-              </Link>
+              </Link> */}
             </>
           )}
         </div>
